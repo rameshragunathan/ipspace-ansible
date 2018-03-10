@@ -1,0 +1,31 @@
+---
+  core1:
+    hostname: hub-1
+    loopback: "10.10.0.1"
+    maxint: 2
+
+  core2:
+    hostname: hub-2
+    loopback: {ip: 10.10.0.2, mask: "/32" }
+    interfaces:
+      - e0/1
+      - e0/2
+
+
+  users:
+    - {username: cisco1, password: cisco1, privilege: 15}
+    - {username: cisco2, password: cisco2, privilege: 15}
+    - {username: cisco3, password: cisco3, privilege: 15}
+
+
+  bgpN
+    - {address: 172.16.10.2, description: Norway, asn: 64512, policy: present, policy: norway-office}
+    - {address: 172.16.20.2, description: Sweden, asn: 64513, policy: present, policy: sweden-office}
+    - {address: 172.16.30.2, description: Denmark, asn: 64514, policy: present, policy: denmark-office}
+
+  bgpRouter
+    - {hostname: norway1, loopback: 172.16.11.1, asn: 64512, interface:}
+
+    # not sure how to create list of interfaces within a dictionary#
+
+
